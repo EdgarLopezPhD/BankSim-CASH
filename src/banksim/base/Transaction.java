@@ -3,82 +3,97 @@ package banksim.base;
 import java.io.Serializable;
 
 public class Transaction implements Serializable {
-    private static final long serialVersionUID = 1L;
-    private final long step;
-    private final String action;
-    private final double amount;
+    long step;
+    date dateTransaction;
+    long idTransaction;
+    String idClient;
+    String idBranch;
+    String transactionType;
+    double amount;
+    boolean isSuspicious;
+    boolean isFlaggedSuspicious;
 
-    private final String nameOrig;
-    private final double oldBalanceOrig, newBalanceOrig;
-
-    private final String nameDest;
-    private final double oldBalanceDest, newBalanceDest;
-
-    private boolean isFraud = false;
-    private boolean isFlaggedFraud = false;
-
-    public Transaction(long step, String action, double amount, String nameOrig, double oldBalanceOrig,
-                       double newBalanceOrig, String nameDest, double oldBalanceDest, double newBalanceDest) {
+    public Transaction(int step, date dateTransaction, int idTransaction, String idClient, String idBranch, String transactionType, double amount, boolean isSuspicious, boolean isFlaggedSuspicious) {
         this.step = step;
-        this.action = action;
+        this.dateTransaction = dateTransaction;
+        this.idTransaction = idTransaction;
+        this.idClient = idClient;
+        this.idBranch = idBranch;
+        this.transactionType = transactionType;
         this.amount = amount;
-        this.nameOrig = nameOrig;
-        this.oldBalanceOrig = oldBalanceOrig;
-        this.newBalanceOrig = newBalanceOrig;
-        this.nameDest = nameDest;
-        this.oldBalanceDest = oldBalanceDest;
-        this.newBalanceDest = newBalanceDest;
-    }
-
-    public boolean isFlaggedFraud() {
-        return isFlaggedFraud;
-    }
-
-    public void setFlaggedFraud(boolean isFlaggedFraud) {
-        this.isFlaggedFraud = isFlaggedFraud;
-    }
-
-    public boolean isFraud() {
-        return isFraud;
+        this.isSuspicious = isSuspicious;
+        this.isFlaggedSuspicious = isFlaggedSuspicious;
     }
 
     public long getStep() {
         return step;
     }
 
-    public String getAction() {
-        return action;
+    public void setStep(long step) {
+        this.step = step;
+    }
+
+    public date getDateTransaction() {
+        return dateTransaction;
+    }
+
+    public void setDateTransaction(date dateTransaction) {
+        this.dateTransaction = dateTransaction;
+    }
+
+    public long getIdTransaction() {
+        return idTransaction;
+    }
+
+    public void setIdTransaction(long idTransaction) {
+        this.idTransaction = idTransaction;
+    }
+
+    public String getIdClient() {
+        return idClient;
+    }
+
+    public void setIdClient(String idClient) {
+        this.idClient = idClient;
+    }
+
+    public String getIdBranch() {
+        return idBranch;
+    }
+
+    public void setIdBranch(String idBranch) {
+        this.idBranch = idBranch;
+    }
+
+    public String getTransactionType() {
+        return transactionType;
+    }
+
+    public void setTransactionType(String transactionType) {
+        this.transactionType = transactionType;
     }
 
     public double getAmount() {
         return amount;
     }
 
-    public void setFraud(boolean isFraud) {
-        this.isFraud = isFraud;
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
-    public String getNameOrig() {
-        return nameOrig;
+    public boolean isSuspicious() {
+        return isSuspicious;
     }
 
-    public double getOldBalanceOrig() {
-        return oldBalanceOrig;
+    public void setSuspicious(boolean suspicious) {
+        isSuspicious = suspicious;
     }
 
-    public double getNewBalanceOrig() {
-        return newBalanceOrig;
+    public boolean isFlaggedSuspicious() {
+        return isFlaggedSuspicious;
     }
 
-    public String getNameDest() {
-        return nameDest;
-    }
-
-    public double getOldBalanceDest() {
-        return oldBalanceDest;
-    }
-
-    public double getNewBalanceDest() {
-        return newBalanceDest;
+    public void setFlaggedSuspicious(boolean flaggedSuspicious) {
+        isFlaggedSuspicious = flaggedSuspicious;
     }
 }
